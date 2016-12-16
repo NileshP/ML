@@ -44,9 +44,6 @@ for i =1:size(X,2)
 end 
 
 
-mean(X_norm)
-
-std(X_norm)
 
 
 
