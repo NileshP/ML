@@ -28,20 +28,25 @@ sigma = zeros(1, size(X, 2));
 
 
 %       
-X
 
-mu = mean(X)
 
-sigma = std(X)
+mu = mean(X);
+
+sigma = std(X);
 
 for i =1:size(X,2)
+	
+	for j = 1:size(X,1)
 
+		X_norm(j,i) = (X(j,i)-mu(i))/sigma(i);
 
-X_norm(:,i) = (X(:,i)-mu(i))/sigma(i);
-
+	end
 end 
 
-X_norm
+
+mean(X_norm)
+
+std(X_norm)
 
 
 
