@@ -64,10 +64,12 @@ end
 function response = submitParts(conf, email, token, parts)
   body = makePostBody(conf, email, token, parts);
   submissionUrl = submissionUrl();
+  params = {'jsonBody', body};
+  [code,responseBody]=system(sprintf('echo jsonBody=%s | curl -k -X POST -d @- %s',body,submissionUrl));
 
-  responseBody = getResponse(submissionUrl, body);
-  jsonResponse = validateResponse(responseBody);
-  response = loadjson(jsonResponse);
+
+  
+  response = loadjson(responseBody);
 end
 
 function body = makePostBody(conf, email, token, parts)

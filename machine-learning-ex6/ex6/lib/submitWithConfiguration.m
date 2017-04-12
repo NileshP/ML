@@ -26,11 +26,16 @@ function submitWithConfiguration(conf)
       '!! Submission failed: unexpected error: %s\n', ...
       e.message);
     fprintf('!! Please try again later.\n');
+
+
+
     return
   end
 
   if isfield(response, 'errorMessage')
     fprintf('!! Submission failed: %s\n', response.errorMessage);
+
+
   else
     showFeedback(parts, response);
     save(tokenFile, 'email', 'token');
@@ -64,6 +69,8 @@ function response = submitParts(conf, email, token, parts)
   submissionUrl = submissionUrl();
   params = {'jsonBody', body};
   [code,responseBody]=system(sprintf('echo jsonBody=%s | curl -k -X POST -d @- %s',body,submissionUrl));
+
+
   response = loadjson(responseBody);
 end
 
@@ -114,6 +121,57 @@ function showFeedback(parts, response)
   fprintf('== %43s | %9s | %-s\n', '', totalScore, '');
   fprintf('== \n');
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
